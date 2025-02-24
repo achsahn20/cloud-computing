@@ -1,0 +1,61 @@
+# Step 1: Update your system
+sudo apt update
+sudo apt upgrade -y
+
+# Step 2: Download FRP
+wget https://github.com/fatedier/frp/releases/download/v0.47.0/frp_0.47.0_linux_amd64.tar.gz
+
+# Step 3: Extract the downloaded tar.gz file
+tar -xvzf frp_0.47.0_linux_amd64.tar.gz
+
+# Step 4: Move to the FRP folder
+cd frp_0.47.0_linux_amd64
+
+# Step 5: Edit the frps.ini file with nano or your preferred text editor
+nano frps.ini
+
+# Example configuration for frps.ini:
+# [common]
+# bind_port = 7000
+# vhost_http_port = 80
+# vhost_https_port = 443
+# dashboard_port = 7500
+# dashboard_user = admin
+# dashboard_pwd = admin
+
+# Step 6: Run the FRP server
+./frps -c ./frps.ini
+
+# Step 7: Open required ports in the firewall (if applicable)
+sudo ufw allow 7000
+sudo ufw allow 80
+sudo ufw allow 443
+sudo ufw allow 7500
+
+# Step 8: Create a systemd service to start FRP on boot (optional)
+sudo nano /etc/systemd/system/frps.service
+
+# Example systemd service file content:
+# [Unit]
+# Description=FRP Server
+# After=network.target
+#
+# [Service]
+# ExecStart=/path/to/frps -c /path/to/frps.ini
+# WorkingDirectory=/path/to/frp_folder
+# Restart=on-failure
+# User=your_username
+#
+# [Install]
+# WantedBy=multi-user.target
+
+# Step 9: Enable and start the FRP service
+sudo systemctl enable frps
+sudo systemctl start frps
+
+# Step 10: Check the status of the FRP server
+sudo systemctl status frps
+
+
+
+https://github.com/aman2004sp/cloud/blob/main/frps.PNG?raw=true
