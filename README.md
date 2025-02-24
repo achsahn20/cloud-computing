@@ -204,6 +204,10 @@ Use SSH or ping to test connectivity between instances.
 
 Useful Links
 https://docs.aws.amazon.com/vpc/latest/userguide/
+
 https://docs.aws.amazon.com/ec2/latest/userguide/
+
 https://docs.aws.amazon.com/vpc/latest/userguide/VPC_Internet_Gateway.html
+
 https://docs.aws.amazon.com/vpn/latest/s2svpn/VPC_VPN.html
+
