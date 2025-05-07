@@ -139,15 +139,6 @@ Launch EC2 instances in `Public-Subnet-1` and `Public-Subnet-2` with public IP e
 
 ---
 
-## 📄 License
-
-MIT License — Use this template freely for infrastructure projects.
-
----
-
-## 🧭 Author
-
-Created by [Your Name or Org] — Contributions welcome!
 
 
 
